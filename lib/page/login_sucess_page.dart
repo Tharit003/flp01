@@ -44,16 +44,24 @@ class _ShopPageState extends State<ShopPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(0, 238, 216, 216),
-        elevation: 0,
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Shop Page"),
-        actions: [
-          IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/cart_page'), 
-            icon: const Icon(Icons.shopping_bag_outlined)),
-        ],
-      ),
+          backgroundColor: Color.fromARGB(0, 238, 216, 216),
+          elevation: 0,
+          foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: const Text("Shop Page"),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CartPage(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.shopping_bag_outlined),
+            ),
+          ],
+        ),
       drawer: MyDrawer(
         onSignOut: signOutUser,
         onCartTap: goToCartPage,
